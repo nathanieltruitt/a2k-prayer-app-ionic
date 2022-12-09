@@ -1,0 +1,7 @@
+{
+  "name": "A2K Prayer App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
