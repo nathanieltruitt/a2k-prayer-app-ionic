@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { FolderPageRoutingModule } from './prayers-routing.module';
 
-import { FolderPage } from './folder.page';
+import { PrayersPage } from './prayers.page';
 import { PrayerListComponent } from './prayer-list/prayer-list.component';
+import { PrayerModalComponent } from './prayer-list/prayer-modal/prayer-modal.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, FolderPageRoutingModule],
-  declarations: [FolderPage, PrayerListComponent],
+  declarations: [PrayersPage, PrayerListComponent, PrayerModalComponent],
 })
-export class FolderPageModule {}
+export class PrayersPageModule {}

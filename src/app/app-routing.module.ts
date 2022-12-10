@@ -8,9 +8,9 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'folder/:id',
+    path: 'prayers',
     loadChildren: () =>
-      import('./folder/folder.module').then((m) => m.FolderPageModule),
+      import('./prayers/prayers.module').then((m) => m.PrayersPageModule),
   },
 ];
 
