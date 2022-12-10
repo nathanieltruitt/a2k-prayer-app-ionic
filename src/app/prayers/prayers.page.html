@@ -4,11 +4,23 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Prayers</ion-title>
+    <ion-buttons class="add-btn-container" slot="end">
+      <ion-button
+        class="add-btn"
+        shape="round"
+        size="large"
+        (click)="modalOpen = !modalOpen"
+        >&plus;</ion-button
+      >
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="ion-padding-top">
-    <app-prayer-list></app-prayer-list>
+    <app-prayer-list
+      (modalClosed)="modalOpen = !modalOpen"
+      [openModal]="modalOpen"
+    ></app-prayer-list>
   </div>
 </ion-content>
