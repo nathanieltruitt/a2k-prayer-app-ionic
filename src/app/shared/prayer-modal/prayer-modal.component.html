@@ -15,17 +15,14 @@
       <ion-content class="ion-padding">
         <ng-container *ngIf="isEditMode; else editModeRef">
           <ion-item>
-            <ion-label>Title</ion-label>
+            <ion-label class="a2k-prayer-title">Title</ion-label>
             <ion-input></ion-input>
           </ion-item>
         </ng-container>
         <ng-template #editModeRef>
-          <h1 class="a2k-modal-body-title">Prayer Title</h1>
+          <h1 class="a2k-modal-body-title">{{ prayer.title }}</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit atque
-            explicabo nesciunt id. Dignissimos harum impedit dolorem distinctio!
-            Excepturi temporibus pariatur doloremque itaque dolore cupiditate
-            fugit! Cum unde aliquid doloribus cupiditate corrupti.
+            {{ prayer.detail }}
           </p>
           <app-comment-box></app-comment-box>
         </ng-template>

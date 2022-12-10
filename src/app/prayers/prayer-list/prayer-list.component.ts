@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Prayer } from 'src/app/core/models/prayer.model';
+import { PrayerService } from 'src/app/core/services/prayer.service';
 
 @Component({
   selector: 'app-prayer-list',
@@ -7,8 +9,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PrayerListComponent {
   @Output() modalOpenEvent = new EventEmitter<void>();
+  constructor(private prayerService: PrayerService) {}
 
-  triggerModal() {
+  getPrayers() {
+    return this.prayerService.prayers$;
+  }
+
+  triggerModal(prayer: Prayer) {
+    this.prayerService.selectedPrayer$.next(prayer);
     this.modalOpenEvent.emit();
   }
 }
