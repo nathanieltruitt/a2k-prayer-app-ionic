@@ -6,11 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./prayer-list.component.scss'],
 })
 export class PrayerListComponent {
-  @Input() openModal = false;
-  @Output() modalClosed = new EventEmitter<void>();
+  @Output() modalOpenEvent = new EventEmitter<void>();
 
-  toggleModal() {
-    this.openModal = !this.openModal;
-    this.modalClosed.emit();
+  triggerModal() {
+    this.modalOpenEvent.emit();
   }
 }

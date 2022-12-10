@@ -8,11 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PrayersPage implements OnInit {
   public folder!: string;
-  public modalOpen = false;
+  public openModal = false;
+  public editPrayer = true;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+  }
+
+  toggleModal(isEditMode: boolean) {
+    this.editPrayer = isEditMode;
+    this.openModal = !this.openModal;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Output, ViewChild } from '@angular/core';
+import { Component, Input, Output, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { EventEmitter } from '@angular/core';
 
@@ -8,6 +8,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./prayer-modal.component.scss'],
 })
 export class PrayerModalComponent {
+  @Input() isEditMode!: boolean;
   @Output() closeEvent = new EventEmitter<void>();
   @ViewChild(IonModal) modal!: IonModal;
   isOpen = true;
