@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PrayersPage implements OnInit {
   public folder!: string;
+  public modalOpen = false;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 

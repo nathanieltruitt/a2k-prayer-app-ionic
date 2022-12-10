@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-prayer-list',
@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./prayer-list.component.scss'],
 })
 export class PrayerListComponent {
-  openModal = false;
+  @Input() openModal = false;
+  @Output() modalClosed = new EventEmitter<void>();
 
   toggleModal() {
     this.openModal = !this.openModal;
+    this.modalClosed.emit();
   }
 }
