@@ -1,14 +1,10 @@
 <ion-list>
-  <ion-item button (click)="toggleModal()"
-    ><ion-label>Prayer 1</ion-label></ion-item
-  >
-  <ion-item button (click)="toggleModal()"
-    ><ion-label>Prayer 2</ion-label></ion-item
-  >
-  <ion-item button (click)="toggleModal()"
-    ><ion-label>Prayer 3</ion-label></ion-item
-  >
+  <ng-container *ngIf="getPrayers() | async as prayers">
+    <ion-item
+      *ngFor="let prayer of prayers"
+      button
+      (click)="triggerModal(prayer)"
+      ><ion-label>{{ prayer.title }}</ion-label></ion-item
+    >
+  </ng-container>
 </ion-list>
-<ng-container *ngIf="openModal">
-  <app-prayer-modal (closeEvent)="toggleModal()"></app-prayer-modal>
-</ng-container>
