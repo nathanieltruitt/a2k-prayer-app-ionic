@@ -1,10 +1,16 @@
 .a2k-comment-btn {
   position: relative;
-  left: 17rem;
+  left: 85%;
   bottom: 2.8125rem;
   z-index: 1;
 }
 
 .a2k-comment-btn ion-icon {
   margin: 0.625rem;
+}
+
+@media (min-width: 520px) {
+  .a2k-comment-btn {
+    left: 90%;
+  }
 }
