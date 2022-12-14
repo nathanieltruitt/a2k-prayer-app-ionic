@@ -8,7 +8,12 @@
           </ion-buttons>
           <ion-title class="a2k-modal-header-title">Prayer</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Update</ion-button>
+            <ion-button *ngIf="isEditMode" (click)="setOpen(false)"
+              >Update</ion-button
+            >
+            <ion-button *ngIf="!isEditMode" (click)="isEditMode = !isEditMode"
+              >Edit</ion-button
+            >
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
@@ -21,7 +26,8 @@
         </ng-container>
         <ng-template #editModeRef>
           <h1 class="a2k-modal-body-title">{{ prayer.title }}</h1>
-          <p>
+          <h2 class="a2k-modal-author">Author: {{ prayer.author }}</h2>
+          <p class="a2k-modal-details">
             {{ prayer.detail }}
           </p>
           <app-comment-box></app-comment-box>

@@ -4,4 +4,16 @@
 
 .a2k-modal-body-title {
   font-weight: 700;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+}
+
+.a2k-modal-author {
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+}
+
+.a2k-modal-details {
+  margin: 2rem 0;
 }
