@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PrayerDetailComponent } from './prayer-detail.component';
+import { PrayerDetailPage } from './prayer-detail.page';
 
-describe('PrayerDetailComponent', () => {
-  let component: PrayerDetailComponent;
-  let fixture: ComponentFixture<PrayerDetailComponent>;
+describe('PrayerDetailPage', () => {
+  let component: PrayerDetailPage;
+  let fixture: ComponentFixture<PrayerDetailPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrayerDetailComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [PrayerDetailPage],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PrayerDetailComponent);
+    fixture = TestBed.createComponent(PrayerDetailPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

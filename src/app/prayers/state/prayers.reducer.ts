@@ -3,7 +3,17 @@ import PrayerActions from './prayers.actions';
 import PrayerState from './prayers.state';
 
 export const initialState: PrayerState = {
-  prayers: [],
+  prayers: [
+    {
+      id: 1,
+      userId: 1,
+      author: 'Nathan Truitt',
+      prayerFor: 'Joe',
+      detail:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quaerat laboriosam ut soluta suscipit blanditiis a ducimus optio placeat velit.',
+      title: 'Test Prayer',
+    },
+  ],
 };
 
 export const prayersReducer = createReducer(

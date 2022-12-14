@@ -1,3 +1,10 @@
-<p>
-  prayer-detail works!
-</p>
+<ng-container *ngIf="prayer$ | async as prayer">
+  <ion-content fullscreen="true">
+    <div class="ion-padding-top">
+      <app-prayer-modal
+        [isEditMode]="isEditMode"
+        [prayer]="prayer"
+      ></app-prayer-modal>
+    </div>
+  </ion-content>
+</ng-container>
