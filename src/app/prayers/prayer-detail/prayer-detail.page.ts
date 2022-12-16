@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import AppState from 'src/app/app.state';
 import { Store } from '@ngrx/store';
 import { map, Observable, take } from 'rxjs';
@@ -15,7 +15,11 @@ export class PrayerDetailPage implements OnInit {
   isEditMode = false;
   prayers$ = this.store.select(selectPrayers);
   prayer$!: Observable<Prayer>;
-  constructor(private route: ActivatedRoute, private store: Store<AppState>) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit() {
     // take the param object and grab id
@@ -24,7 +28,10 @@ export class PrayerDetailPage implements OnInit {
     });
 
     // check if this is a new prayer
-    if (this.routeId === 'new') this.isEditMode = true;
+    if (this.routeId === 'new') {
+      this.isEditMode = true;
+      return;
+    }
 
     this.prayer$ = this.prayers$.pipe(
       map((prayers) => {
@@ -35,5 +42,9 @@ export class PrayerDetailPage implements OnInit {
         else return prayer;
       })
     );
+  }
+
+  onClose() {
+    this.router.navigate(['/prayers'], { relativeTo: this.route });
   }
 }

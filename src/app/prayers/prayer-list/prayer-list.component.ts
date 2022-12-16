@@ -18,12 +18,8 @@ export class PrayerListComponent {
     private store: Store<AppState>
   ) {}
 
-  ngOnInit() {
-    this.prayers$.subscribe((prayers) => console.log(prayers));
-  }
-
   triggerModal(prayer: Prayer) {
-    this.router.navigate(['detail/' + prayer.id], {
+    this.router.navigate(['/', 'prayers', 'detail', prayer.id], {
       relativeTo: this.route,
     });
   }

@@ -2,7 +2,6 @@ import { Component, Input, Output, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { EventEmitter } from '@angular/core';
 import { Prayer } from 'src/app/core/models/prayer.model';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-prayer-modal',
@@ -12,8 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PrayerModalComponent {
   @Input() isEditMode!: boolean;
   @Input() prayer!: Prayer;
+  @Output() closeEvent = new EventEmitter<void>();
   @ViewChild(IonModal) modal!: IonModal;
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor() {}
   isOpen = true;
   message = 'example modal';
   name!: string;
@@ -21,6 +21,6 @@ export class PrayerModalComponent {
   setOpen(isOpen: boolean) {
     this.isOpen = isOpen;
     this.modal.dismiss();
-    this.router.navigate(['/prayers'], { relativeTo: this.route });
+    this.closeEvent.emit();
   }
 }

@@ -19,11 +19,12 @@ export class PrayersPage {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private prayerService: PrayerService,
     private store: Store<AppState>
   ) {}
 
   onAddPrayer() {
-    this.router.navigate(['detail/new'], { relativeTo: this.route });
+    this.router.navigate(['/', 'prayers', 'detail', 'new'], {
+      relativeTo: this.route,
+    });
   }
 }

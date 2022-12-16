@@ -1,10 +1,21 @@
-<ng-container *ngIf="prayer$ | async as prayer">
+<ng-container *ngIf="prayer$ | async as prayer; else editModeRef">
   <ion-content fullscreen="true">
     <div class="ion-padding-top">
       <app-prayer-modal
         [isEditMode]="isEditMode"
         [prayer]="prayer"
+        (closeEvent)="onClose()"
       ></app-prayer-modal>
     </div>
   </ion-content>
 </ng-container>
+<ng-template #editModeRef>
+  <ion-content fullscreen="true">
+    <div class="ion-padding-top">
+      <app-prayer-modal
+        [isEditMode]="isEditMode"
+        (closeEvent)="onClose()"
+      ></app-prayer-modal>
+    </div>
+  </ion-content>
+</ng-template>
