@@ -5,11 +5,11 @@ import { SharedModule } from '../shared/shared.module';
 
 import { PrayersPageRoutingModule } from './prayers-routing.module';
 
-import { PrayersPage } from './prayers.page';
+import { prayerRoutingComponents } from './prayers-routing.module';
 import { PrayerListComponent } from './prayer-list/prayer-list.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, SharedModule, PrayersPageRoutingModule],
-  declarations: [PrayersPage, PrayerListComponent],
+  declarations: [PrayerListComponent, prayerRoutingComponents],
 })
 export class PrayersPageModule {}

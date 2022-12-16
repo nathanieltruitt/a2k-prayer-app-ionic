@@ -13,6 +13,7 @@ export class PrayerModalComponent {
   @Input() prayer!: Prayer;
   @Output() closeEvent = new EventEmitter<void>();
   @ViewChild(IonModal) modal!: IonModal;
+  constructor() {}
   isOpen = true;
   message = 'example modal';
   name!: string;

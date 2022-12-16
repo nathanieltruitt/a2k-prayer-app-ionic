@@ -9,7 +9,7 @@
         class="add-btn"
         shape="round"
         size="large"
-        (click)="openModal = !openModal"
+        (click)="onAddPrayer()"
         >&plus;</ion-button
       >
     </ion-buttons>
@@ -18,13 +18,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="ion-padding-top">
-    <app-prayer-list (modalOpenEvent)="toggleModal(false)"></app-prayer-list>
-    <ng-container *ngIf="openModal">
-      <app-prayer-modal
-        (closeEvent)="toggleModal(true)"
-        [isEditMode]="editPrayer"
-        [prayer]="selectedPrayer"
-      ></app-prayer-modal>
-    </ng-container>
+    <app-prayer-list></app-prayer-list>
+    <router-outlet></router-outlet>
   </div>
 </ion-content>
