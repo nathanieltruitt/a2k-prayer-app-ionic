@@ -8,9 +8,9 @@
           </ion-buttons>
           <ion-title class="a2k-modal-header-title">Prayer</ion-title>
           <ion-buttons slot="end">
-            <ion-button *ngIf="isEditMode" (click)="setOpen(false)"
-              >Update</ion-button
-            >
+            <ion-button *ngIf="isEditMode" (click)="onSavePrayer()">{{
+              !prayer ? "Add" : "Update"
+            }}</ion-button>
             <ion-button *ngIf="!isEditMode" (click)="isEditMode = !isEditMode"
               >Edit</ion-button
             >
@@ -18,13 +18,45 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <ng-container *ngIf="isEditMode; else editModeRef">
-          <ion-item>
-            <ion-label class="a2k-prayer-title">Title</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
+        <ng-container *ngIf="isEditMode; else viewModeRef">
+          <form [formGroup]="prayerForm">
+            <ion-item>
+              <ion-label position="stacked" class="a2k-prayer-title"
+                ><span class="a-input">Title</span></ion-label
+              >
+              <ion-input
+                id="title"
+                name="title"
+                formControlName="title"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" class="a2k-prayer-title"
+                ><span class="a2k-input">For</span></ion-label
+              >
+              <ion-input
+                name="for"
+                id="for"
+                placeholder="Who is this prayer for?"
+                formControlName="prayerFor"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked" class="a2k-prayer-title"
+                ><span class="a2k-input">Description</span></ion-label
+              >
+              <ion-textarea
+                id="description"
+                name="description"
+                formControlName="detail"
+                [autoGrow]="true"
+                rows="10"
+                placeholder="write a description for your prayer here"
+              ></ion-textarea>
+            </ion-item>
+          </form>
         </ng-container>
-        <ng-template #editModeRef>
+        <ng-template #viewModeRef>
           <h1 class="a2k-modal-body-title">{{ prayer.title }}</h1>
           <h2 class="a2k-modal-author">Author: {{ prayer.author }}</h2>
           <p class="a2k-modal-details">

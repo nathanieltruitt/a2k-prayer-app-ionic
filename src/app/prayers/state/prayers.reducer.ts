@@ -23,8 +23,8 @@ export const initialState: PrayerState = {
       title: 'Test Prayer 2',
     },
     {
-      id: 2,
-      userId: 2,
+      id: 3,
+      userId: 3,
       author: 'Nathan Truitt',
       prayerFor: 'Joe',
       detail:
@@ -67,7 +67,8 @@ export const prayersReducer = createReducer(
       // TODO: need to change once userId and groupId are passed in
       const prayer = state.prayers.filter((prayer) => prayer.id === id)[0];
       const idx = state.prayers.indexOf(prayer);
-      state.prayers[idx] = {
+      const prayers = state.prayers.slice();
+      prayers[idx] = {
         id: id,
         userId: 1,
         author: author,
@@ -76,7 +77,7 @@ export const prayersReducer = createReducer(
         detail: detail,
         groupId: 1,
       };
-      return { prayers: state.prayers };
+      return { prayers: prayers };
     }
   ),
   on(PrayerActions.deletePrayer, (state, { id }) => {
