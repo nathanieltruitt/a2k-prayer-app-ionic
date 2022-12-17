@@ -11,7 +11,25 @@ export const initialState: PrayerState = {
       prayerFor: 'Joe',
       detail:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quaerat laboriosam ut soluta suscipit blanditiis a ducimus optio placeat velit.',
-      title: 'Test Prayer',
+      title: 'Test Prayer 1',
+    },
+    {
+      id: 2,
+      userId: 2,
+      author: 'Nathan Truitt',
+      prayerFor: 'Joe',
+      detail:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quaerat laboriosam ut soluta suscipit blanditiis a ducimus optio placeat velit.',
+      title: 'Test Prayer 2',
+    },
+    {
+      id: 2,
+      userId: 2,
+      author: 'Nathan Truitt',
+      prayerFor: 'Joe',
+      detail:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quaerat laboriosam ut soluta suscipit blanditiis a ducimus optio placeat velit.',
+      title: 'Test Prayer 3',
     },
   ],
 };
